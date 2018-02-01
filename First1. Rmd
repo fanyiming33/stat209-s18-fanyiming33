@@ -1,0 +1,34 @@
+---
+title: "my first markdown file"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(readr)
+library(dplyr)
+library(ggplot2)
+```
+
+## Reading the Data
+
+Here is my favorote restaurant. 
+
+```{r}
+class<-(read_csv("C:\\Users\\yf7tv\\Desktop\\fav_restaurants.csv"))
+```
+
+```{r}
+ggplot(class, aes(cuisine)) +
+  geom_bar()
+
+```
+
+The type of cuisine students like to have. 
+
+```{r}
+ggplot(class, aes(yearly_visits, fav_dish)) +
+  geom_point()
+
+```
+
