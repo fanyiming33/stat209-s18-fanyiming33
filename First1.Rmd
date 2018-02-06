@@ -1,0 +1,44 @@
+---
+title: "my first markdown file"
+output: html_document
+---
+```{r
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(message = FALSE)
+knitr::opts_chunk$set(warning =  FALSE)
+library(readr)
+library(dplyr)
+library(ggplot2)
+```
+
+## Reading the Data
+
+Here is my favorote restaurant. 
+
+```{r}
+class<-(read_csv("https://raw.githubusercontent.com/URstats/stat209-s18-fanyiming33/master/fav_restaurants.csv"))
+```
+
+```{r}
+ggplot(class, aes(cuisine)) +
+  geom_bar()
+
+```
+
+The type of cuisine students like to have. 
+
+```{r}
+ggplot(class, aes(yearly_visits, fav_dish)) +
+  geom_point()
+
+```
+
+```{r}
+class<- read.csv("https://raw.githubusercontent.com/URstats/stat209-s18-fanyiming33/master/fav_restaurants.csv")
+ggplot(class, aes(cuisine)) +
+  geom_bar()
+```
+
