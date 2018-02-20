@@ -1,4 +1,4 @@
-season,team_name,number_of_3pointer_attempts,number_of_made,3pointer_precentage,winning_precentage
+season,team_name,number_of_threepointer_attempts,number_of_made,threepointer_precentage,winning_precentage
 2017,Houston,42.8,15.7,0.366,0.772
 2017,Brooklyn,34.7,12,0.346,0.322
 2017,Cleveland,32.9,12.2,0.37,0.607
