@@ -29,10 +29,7 @@ Is there a correlation betwween 3-point shots ability and winning precentage?
 
 ## Overview
 
-PUT AN INTRODUCTORY PARAGRAPH HERE GIVING IN 4-5 SENTENCES
-THE BASIC IDEA OF YOUR DATA COLLECTION TASK AND HOW YOU WENT
-ABOUT IT. INCLUDE THE OVERARCHING RESEARCH QUESTION DESCRIBING
-WHY YOU WERE INTERESTED IN THIS DATA
+
 
 Since I was a child, I have watched the NBA. Nowadys, the basketball league is in the middle of a revolution that more and more teams are willing to take 3-point shots. In my project, I try to explore if taking 3-point shots can really maximize offensive efficiency by improving each team's winning precentage. In other words, I want to know if there is a correlation between 3-point shots ability and winning precentage.
 
