@@ -1,0 +1,126 @@
+---
+title: "nba three pointer precentage and winning precentage "
+author: "Yiming Fan"
+output: html_notebook
+---
+
+
+
+
+
+```{r setup, include=FALSE, message=FALSE, warning=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(warning = FALSE)
+knitr::opts_chunk$set(message = FALSE)
+knitr::opts_chunk$set(fig.height = 5)
+knitr::opts_chunk$set(fig.width = 8.5)
+knitr::opts_chunk$set(out.width = "100%")
+knitr::opts_chunk$set(dpi = 300)
+
+library(readr)
+library(ggplot2)
+library(dplyr)
+library(viridis)
+library(plotly)
+theme_set(theme_minimal())
+```
+
+Is there a correlation betwween 3-point shots ability and winning precentage?
+
+## Overview
+
+PUT AN INTRODUCTORY PARAGRAPH HERE GIVING IN 4-5 SENTENCES
+THE BASIC IDEA OF YOUR DATA COLLECTION TASK AND HOW YOU WENT
+ABOUT IT. INCLUDE THE OVERARCHING RESEARCH QUESTION DESCRIBING
+WHY YOU WERE INTERESTED IN THIS DATA
+
+Since I was a child, I have watched the NBA. Nowadys, the basketball league is in the middle of a revolution that more and more teams are willing to take 3-point shots. In my project, I try to explore if taking 3-point shots can really maximize offensive efficiency by improving each team's winning precentage. In other words, I want to know if there is a correlation between 3-point shots ability and winning precentage.
+
+## Data dictionary
+
+
+- **season**: a numeric variable describing which year of stats we are using.
+- **team_name**:a catagorical variable describing each team's name. 
+options from:
+Houston
+Brooklyn
+Cleveland
+Toronto
+Dallas
+Boston
+Chicago
+Miami
+Denver
+Atlanta
+Golden State
+Oklahoma City
+New Orleans
+Orlando
+Utah
+Philadelphia
+Detroit
+LA Clippers
+LA Lakers
+Phoenix
+Portland
+Memphis
+Charlotte
+Washington
+Indiana
+San Antonio
+Milwaukee
+Sacramento
+Minnesota
+New York
+- **number_of_3pointer_attempts**: a numeric variable describing 3 point shots attempted. 
+- **number_of_made**:a numeric variable describing successful 3 pointer attempts.
+- **3pointer_percentage**:a numeric variable dividing made 3 pointer by total 3 pointer attempted.
+- **winning_precentage**:a numeric variable dividing game won by total game played. 
+
+
+
+
+
+```{r}
+nba <- read_csv("https://raw.githubusercontent.com/URstats/stat209-s18-fanyiming33/master/nba.csv") 
+nba
+```
+intext citation (ESPN)
+
+
+## Exploratory Analysis
+As we have seen in the nba, those teams who are good at shooting threes usually have a better precentage of winning the game. For the recent five years, we can find that teams are more liely to attempt 3 pointers. Our task in this project is to find the real reason why most of the teams are attempting 3 pointers knowadays.
+We will dig into the relationship between 3 pointers and winning record on my first graph. Then, we will analyze the winning precentage and three pointer attempted of Houston which is the best 3 pointer team in the league.
+
+
+```{r, echo=FALSE}
+nba_2017 <- filter(nba, season == 2017)
+nba_2017
+ggplot(nba_2017, aes(threepointer_precentage, winning_precentage)) +
+  geom_point(aes(color=team_name), size=5) +
+  ggtitle("the effect of threepointer precentage on winning precentage") +
+  annotate("text", x = 0.386, y = 0.759, label = "the best 3pointer team" ) +
+  annotate("text", x = 0.366, y = 0.772, label = "the team winning the most") +
+  annotate("text", x = 0.342, y = 0.305, label = "worst team and 3pointer team")
+
+ggplotly()
+```
+
+```{r}
+rocket <- filter(nba, team_name == "Houston")
+rocket
+ggplot(rocket, aes(season, winning_precentage)) +
+  geom_point(aes(size=number_of_threepointer_attempts), color="red") +
+  geom_line()
+
+```
+
+## Conclusion
+
+From the first graph, we can clearly see a relationship between each team's winning precentage and threepointer's precentage. As more 3 shots are made, a team has a greater chance of winning. In the second graph, we can conclude from Houston that the increasing amount of three pointer increse the possibility of winning. 
+
+## References
+
+"NBA Statistics and League Leaders." NBA Stats,       sports.espn.go.com/nba/statistics?season=2009&seasontype=2.
+
+
