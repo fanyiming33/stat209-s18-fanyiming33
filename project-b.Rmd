@@ -33,6 +33,8 @@ FILTERED DATASETS THAT YOU NEED IN THE REST OF THE REPORT
 
 ```{r}
 tracts <- read_csv("https://raw.githubusercontent.com/statsmaths/stat_data/gh-pages/acs_tract_data_2016.csv.gz")
+dc <- filter(tracts, county == "District of Columbia")
+dc
 ```
 
 NOW, YOUR REPORT SHOULD GO HERE. FEEL FREE TO SPLIT IT UP
@@ -40,11 +42,11 @@ WITH SECTIONS `##`, BUT THIS IS NOT REQUIRED. ADD CODE CHUNKS
 TO PRODUCE GRAPHICS WHERE THEY BELONG IN THE OUTPUT
 
 ```{r}
-los <- filter(tracts, cbsa == "Los Angeles-Long Beach-Anaheim, CA", county == "Los Angeles County")
-los
+qmplot(lon, lat, data = dc, geom = "blank") +
+  geom_point(aes(color = sex_female, alpha = 0.5)) +
+  scale_color_viridis() +
+  geom_text(aes(label= race_black), data = dc, color = "red", alpha=0.5) 
 
-qmplot(lon, lat, data = los, geom = "blank") +
-  geom_point(aes)
 ```
 
 
