@@ -24,7 +24,7 @@ theme_set(theme_minimal())
 ```
 
 
-```{r}
+```{r include=FALSE}
 tracts <- read_csv("https://raw.githubusercontent.com/statsmaths/stat_data/gh-pages/acs_tract_data_2016.csv.gz")
 dc <- filter(tracts, county == "District of Columbia")
 dc
@@ -32,27 +32,26 @@ superexpensivedc <- filter(dc, median_rent > 1400)
 superexpensivedc
 
 ```
+Living Standard in DC 
 
-Topic : rent and race
-
-Washington, DC, is the U.S. capital, which is a city near the state of Maryland and Virginia. As we all know, Washingdon, Dc is the political center of the world because the American federal government and other important orgnizations are operating in Washingdon, DC. 
+Washington, DC, is the U.S. capital, which is a city near the state of Maryland and Virginia. As we all know, Washington, Dc is the political center of the world because the American federal government and other important organizations are operating in Washington, DC. 
 
 In my report, I want to study the living standard in DC. If a person is thinking about moving to a city, he/she is probably wondering whether he/she can afford to settle in the city. As a national's capital, we all expect the cost of living in DC is higher than other cities. Among all the cost of living in DC, housing price is one of the most important factors to consider. For people who want to live in DC for short term, renting seems like a more practical and affordable option than actually buying a real estate. Therefore, in my first visualization, I am about to find out whether renting in DC is relatively expensive or relatively cheap.
 
-Overall, the national average rent was $1361 in January 2018, according to the data from Yardi Matrix.The most expensive city for renter should be NYC, which has an average apartment renting price of $4000. However, for the renters living in the Midwestern towns, the average rents do not exceed $800 per month(Salviati, 2018).
+Overall, the national average rent was $1361 in January 2018, according to the data from Yardi Matrix. The most expensive city for renter should be NYC, which has an average apartment renting price of $4000. However, for the people living in the Midwestern towns, the average rents do not exceed $800 per month (Salviati, 2018).
 
 ```{r}
 qmplot(lon, lat, data = dc, geom = "blank") +
-  geom_point(aes(color = median_rent, alpha = 0.8, zoom = 10)) +
+  geom_point(aes(color = median_rent, zoom = 10)) +
   scale_color_viridis() +
-  geom_point(color="red", data = superexpensivedc) +
+  geom_text(aes(label = median_rent), data = superexpensivedc, color="red", alpha= 0.5) +
   ggtitle("The median rent of DC")
 
   
 ```
-From above graph, the red dots indicate the area whose rents are above national average rent--$1400.Thus, the rest of the dots indicate that relatively affordable rentals prices in the $1300-$1400 range could be found at the eastern side of Washington. Moreover, the center of Washington and the western side of the city are the most expensive neighborhoods to rent.
+From above graph, the red text label indicate the area whose rents are above national average rent--$1400.Thus, the rest of the dots indicate that relatively affordable house could be found at the eastern side of Washington. Moreover, the center of Washington and the western side of the city are the most expensive neighborhoods to rent.
 
-People may ask how much should you spend on renting is a reasonable amount. According to a report conducted by the economic expert, a person should not spend more than 25 percent of his/her monthly income on rent(Kaysen, 2016). In other words, if you can get $10000 a month, then the reasonable ammount of rent should no more than $2500. Thus, in the next graph, I will explore what percentage of income that most DC residents spend on the rents. 
+People may ask how much should you spend on renting is a reasonable amount. According to a report conducted by the economic expert, a person should not spend more than 25 percent of his/her monthly income on rent (Kaysen, 2016). In other words, if you can get $10000 a month, then the reasonable amount of rent should no more than $2500. Thus, in the next graph, I will explore what percentage of income that most DC residents spend on the rents. 
 
 ```{r}
 dc$rent_by_income_30_99 <- dc$rent_by_income_30_35 + dc$rent_by_income_35_40 + dc$rent_by_income_40_50 + dc$rent_by_income_50_99
@@ -62,22 +61,22 @@ qmplot(lon, lat, data = dc, geom = "blank") +
   ggtitle(" proportion of income spent on rent")
   
 ```
-Based on the report of the economic expert(people should not spend more than 25 percent of their income on rents), most of DC residents spend more than 30 percent of their income on rents. Especially in the eastern side of city, a large portion of people spend more than 30 percent of their income on rents. For those people who have to pay 30 percent of their income to pay rents, their renting burden causes serious problem for them, such lowering the standard of living. To illustrate, those people must give up television, internet service, or even decent food in oder to afford expensive rents. At the end, they need to move to more affordable accommodations.
+Based on the report of the economic expert (people should not spend more than 25 percent of their income on rents), most of DC residents spend more than 30 percent of their income on rents. From the graph, especially on the east side of city, a large portion of people spend more than 30 percent of their income on rents. For those people who have to pay 30 percent of their income to pay rents, their renting burden causes serious problem for them, such lowering the standard of living. To illustrate, those people must give up television, internet service, or even decent food in order to afford expensive rents. At the end, they need to move to more affordable accommodations.
 
-From above two graphs, we learned that although the DC residents from the center and west side of Washington pays higher amount of rents, but they still able to control their rent precentage under a relatively healthy range. From that fact, we knew that wealthy people who live in the west of DC are more likely to enjoy a better living standard than the people from the east side. 
+From above two graphs, we learned that although the DC residents from the center and west side of Washington pays higher amount of rents, but they still able to control their rent percentage under a relatively healthy range. From that fact, we knew that wealthy people who live in the west of DC are more likely to enjoy a better living standard than the people from the east side. 
 
 My third question is whether overlap between the economically wealthy group and racially dominant group. 
 ```{r}
 qmplot(lon, lat, data = dc, geom = "blank") +
   geom_point(aes(color = race_white), alpha = 0.8) +
   scale_color_viridis() +
-  ggtitle("the racial distribution of dominant raical group")
+  ggtitle("the racial distribution of predominant raical group") 
   
 ```
-From this last graph, the yellow color dots indicate there are prodominant white people living in the west side of D.C., and the darker dots demonstrate that people living in the east side of D.C. are racial minority. Unsurprisingly, the white race have the economic advantage over other minority. The white people have better rental condition and spend relatively lower income to pay their rents than minority. 
+From the last graph, the yellow color dots indicate there are predominant white people living in the west side of D.C., and the darker dots demonstrate that people living in the east side of D.C. are racial minority. Unsurprisingly, the white race have the economic advantage over other minority. The white people have better housing condition and spend relatively lower income to pay their rents than minority. 
 
 Summary
-Because the unique history of Washington D.C., DC was one of the most racially segregated cities in US. This segregation causes the huge disparity in living standard between west and east side of the city. The white people have the better housing resource and they also spend less propotion of their income to pay rents. The government should raise higher tax from white people, and subsidize the minority. 
+Washington, DC was one of the most racially segregated cities in US. This segregation causes the huge disparity in living standard between west and east side of the city. The white people have the better housing resource and they also spend less proportion of their income to pay rents. In order to help moniorty people living in DC, the government should raise higher tax from white people, and subsidize the minority. 
 
 
 
