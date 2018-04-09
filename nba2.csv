@@ -1,0 +1,121 @@
+season,team_name,number_of_threepointer_attempts,number_of_made,threepointer_precentage,winning_precentage,conference ,field_goal_percentage
+2017,Houston,42.8,15.7,0.366,0.772,western,0.461
+2017,Brooklyn,34.7,12,0.346,0.322,eastern,0.441
+2017,Cleveland,32.9,12.2,0.37,0.607,eastern,0.478
+2017,Toronto,32.4,11.6,0.357,0.719,eastern,0.471
+2017,Dallas,32.4,11.7,0.361,0.31,western,0.445
+2017,Boston,31.4,11.6,0.37,0.678,eastern,0.45
+2017,Chicago,30.9,11,0.356,0.351,eastern,0.435
+2017,Miami,30.7,11,0.359,0.517,eastern,0.455
+2017,Denver,30.4,11.1,0.366,0.552,western,0.471
+2017,Atlanta,30,11,0.366,0.305,eastern,0.446
+2017,Golden State,29.8,11.7,0.392,0.759,western,0.504
+2017,Oklahoma City,29.6,10.4,0.351,0.559,western,0.452
+2017,New Orleans,29.3,10.7,0.365,0.544,western,0.482
+2017,Orlando,29.3,10.4,0.355,0.316,eastern,0.452
+2017,Utah,29.2,11,0.376,0.517,western,0.462
+2017,Philadelphia,28.8,10.4,0.362,0.545,eastern,0.471
+2017,Detroit,28.7,10.7,0.375,0.491,eastern,0.45
+2017,LA Clippers,28.5,10.1,0.353,0.536,western,0.471
+2017,LA Lakers,27.7,9.2,0.333,0.404,western,0.462
+2017,Phoenix,27.7,9.2,0.332,0.305,western,0.44
+2017,Portland,26.9,10.2,0.379,0.552,western,0.453
+2017,Memphis,26.7,9.3,0.348,0.321,western,0.442
+2017,Charlotte,26.6,9.6,0.362,0.421,eastern,0.449
+2017,Washington,26.6,9.8,0.369,0.579,eastern,0.468
+2017,Indiana,24.7,9.2,0.373,0.569,eastern,0.472
+2017,San Antonio,24.6,8.8,0.357,0.593,western,0.459
+2017,Milwaukee,24.5,8.6,0.349,0.561,eastern,0.48
+2017,Sacramento,23.4,8.9,0.382,0.316,western,0.45
+2017,Minnesota,22.2,7.9,0.356,0.59,western,0.476
+2017,New York,22.1,7.8,0.355,0.39,eastern,0.462
+2016,Houston,40.3,14.4,0.357,0.671,western,0.462
+2016,Cleveland,33.9,13,0.384,0.622,eastern,0.47
+2016,Boston,33.4,12,0.359,0.646,eastern,0.454
+2016,Brooklyn,31.6,10.7,0.338,0.244,eastern,0.444
+2016,Golden State,31.2,12,0.383,0.817,western,0.495
+2016,Dallas,30.2,10.7,0.355,0.402,western,0.44
+2016,Philadelphia,29.8,10.1,0.34,0.341,eastern,0.442
+2016,Denver,28.8,10.6,0.368,0.488,western,0.469
+2016,Charlotte,28.6,10,0.351,0.439,eastern,0.442
+2016,Portland,27.7,10.4,0.375,0.5,western,0.459
+2016,LA Clippers,27.4,10.3,0.375,0.622,western,0.475
+2016,Miami,27,9.9,0.365,0.5,eastern,0.455
+2016,New Orleans,26.8,9.4,0.35,0.415,western,0.45
+2016,Memphis,26.5,9.4,0.354,0.524,western,0.435
+2016,Orlando,26.1,8.5,0.328,0.354,eastern,0.44
+2016,Atlanta,26.1,8.9,0.341,0.524,eastern,0.451
+2016,Utah,26,9.6,0.372,0.622,western,0.466
+2016,Oklahoma City,25.8,8.4,0.327,0.573,western,0.452
+2016,LA Lakers,25.7,8.9,0.346,0.317,western,0.45
+2016,Washington,24.8,9.2,0.372,0.598,eastern,0.475
+2016,New York,24.7,8.6,0.348,0.378,eastern,0.447
+2016,Toronto,24.3,8.8,0.363,0.622,eastern,0.464
+2016,Sacramento,23.9,9,0.376,0.39,western,0.461
+2016,Milwaukee,23.7,8.8,0.37,0.512,eastern,0.474
+2016,San Antonio,23.5,9.2,0.391,0.744,western,0.469
+2016,Detroit,23.3,7.7,0.33,0.451,eastern,0.449
+2016,Indiana,23,8.6,0.376,0.512,eastern,0.465
+2016,Phoenix,22.6,7.5,0.332,0.293,western,0.45
+2016,Chicago,22.3,7.6,0.34,0.5,eastern,0.444
+2016,Minnesota,21,7.3,0.349,0.378,western,0.467
+2015,Golden State,31.6,13.1,0.416,0.89,western,0.487
+2015,Houston,30.9,10.7,0.347,0.5,western,0.452
+2015,Cleveland,29.6,10.7,0.362,0.695,eastern,0.46
+2015,Charlotte,29.4,10.6,0.362,0.585,eastern,0.439
+2015,Dallas,28.6,9.8,0.344,0.512,western,0.444
+2015,Portland,28.5,10.5,0.37,0.537,western,0.45
+2015,Atlanta,28.4,9.9,0.35,0.585,eastern,0.458
+2015,Philadelphia,27.5,9.3,0.339,0.122,eastern,0.431
+2015,LA Clippers,26.7,9.7,0.364,0.646,western,0.465
+2015,Detroit,26.2,9,0.345,0.537,eastern,0.439
+2015,Boston,26.1,8.7,0.335,0.585,western,0.439
+2015,Phoenix,25.8,9,0.348,0.28,western,0.435
+2015,LA Lakers,24.6,7.8,0.317,0.207,western,0.414
+2015,Washington,24.2,8.6,0.358,0.5,eastern,0.46
+2015,Utah,23.8,8.5,0.355,0.488,western,0.449
+2015,New Orleans,23.8,8.6,0.36,0.366,western,0.448
+2015,Oklahoma City,23.7,8.3,0.348,0.671,western,0.476
+2015,Denver,23.7,8,0.338,0.402,western,0.442
+2015,Toronto,23.4,8.6,0.37,0.683,eastern,0.451
+2015,Indiana,23,8.1,0.351,0.549,eastern,0.45
+2015,Sacramento,22.4,8,0.359,0.402,western,0.464
+2015,Orlando,22.2,7.8,0.35,0.427,eastern,0.455
+2015,New York,21.5,7.4,0.346,0.39,eastern,0.439
+2015,Chicago,21.4,7.9,0.371,0.512,eastern,0.441
+2015,Memphis,18.5,6.1,0.331,0.512,western,0.44
+2015,San Antonio,18.5,7,0.375,0.817,western,0.484
+2015,Brooklyn,18.4,6.5,0.352,0.256,eastern,0.453
+2015,Miami,18,6.1,0.336,0.585,eastern,0.47
+2015,Minnesota,16.4,5.5,0.338,0.354,western,0.464
+2015,Milwaukee,15.6,5.4,0.345,0.402,eastern,0.467
+2014,Houston,32.7,11.4,0.348,0.683,western,0.444
+2014,Cleveland,27.5,10.1,0.367,0.646,eastern,0.458
+2014,Portland,27.2,9.8,0.362,0.622,western,0.45
+2014,Golden State,27,10.8,0.398,0.817,western,0.478
+2014,LA Clippers,26.9,10.1,0.376,0.683,western,0.473
+2014,Philadelphia,26.3,8.4,0.32,0.22,eastern,0.408
+2014,Atlanta,26.2,10,0.38,0.732,eastern,0.466
+2014,Dallas,25.4,8.9,0.352,0.61,western,0.463
+2014,Toronto,25.1,8.9,0.352,0.598,eastern,0.455
+2014,Phoenix,25,8.5,0.341,0.476,western,0.452
+2014,Detroit,24.9,8.6,0.344,0.39,eastern,0.432
+2014,Denver,24.8,8,0.325,0.366,western,0.433
+2014,Boston,24.6,8,0.327,0.488,eastern,0.443
+2014,Oklahoma City,22.7,7.7,0.339,0.549,western,0.447
+2014,San Antonio,22.5,8.3,0.367,0.671,western,0.468
+2014,Chicago,22.3,7.9,0.353,0.61,eastern,0.442
+2014,Utah,21.7,7.4,0.343,0.463,western,0.447
+2014,Indiana,21.2,7.5,0.352,0.463,eastern,0.439
+2014,Miami,20.2,6.8,0.335,0.451,eastern,0.456
+2014,Brooklyn,19.9,6.6,0.331,0.463,eastern,0.451
+2014,New York,19.7,6.8,0.347,0.207,eastern,0.428
+2014,Orlando,19.5,6.8,0.347,0.305,eastern,0.453
+2014,New Orleans,19.3,7.1,0.37,0.549,western,0.457
+2014,Charlotte,19.1,6.1,0.318,0.402,eastern,0.42
+2014,LA Lakers,18.9,6.5,0.344,0.256,western,0.435
+2014,Milwaukee,18.3,6.6,0.363,0.5,eastern,0.459
+2014,Washington,16.8,6.1,0.36,0.561,eastern,0.462
+2014,Sacramento,16.5,5.6,0.341,0.354,western,0.455
+2014,Memphis,15.2,5.2,0.339,0.671,western,0.458
+2014,Minnesota,14.9,5,0.332,0.195,western,0.438
