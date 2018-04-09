@@ -1,0 +1,59 @@
+---
+title: "PUT YOUR TITLE HERE"
+author: "PUT YOUR NAME HERE"
+output: html_document
+---
+
+```{r setup, include=FALSE, message=FALSE, warning=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(message = FALSE)
+knitr::opts_chunk$set(warning = FALSE)
+knitr::opts_chunk$set(out.width = "100%")
+knitr::opts_chunk$set(dpi = 300)
+
+library(readr)
+library(ggplot2)
+library(dplyr)
+library(ggmap)
+library(viridis)
+library(forcats)
+library(smodels)
+```
+
+```{r}
+nba <- read_csv("https://raw.githubusercontent.com/URstats/stat209-s18-fanyiming33/master/nba2.csv") 
+nba
+```
+
+## Introduction
+
+
+## Methods
+
+
+## Results
+```{r}
+nba2017 <- filter(nba, season == "2017")
+model <- lm_basic(winning_percentage ~ 1 + conference, data = nba2017) 
+reg_table(model, level = 0.95)
+```
+
+```{r}
+model <- lm_basic(threepointer_percentage ~ 1 + conference, data = nba2017)
+reg_table(model, level = 0.95)
+```
+
+```{r}
+model <- lm_basic(field_goal_percentage ~ 1 + conference, data = nba2017)
+reg_table(model, level = 0.95)
+```
+
+## Conclusions
+
+
+
+## References
+
+
+
+
