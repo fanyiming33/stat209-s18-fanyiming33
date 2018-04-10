@@ -1,6 +1,6 @@
 ---
-title: "PUT YOUR TITLE HERE"
-author: "PUT YOUR NAME HERE"
+title: "Is the NBA Western conference better than the Eastern conference?"
+author: "Yiming Fan"
 output: html_document
 ---
 
@@ -20,40 +20,60 @@ library(forcats)
 library(smodels)
 ```
 
-```{r}
+```{r include=FALSE}
 nba <- read_csv("https://raw.githubusercontent.com/URstats/stat209-s18-fanyiming33/master/nba2.csv") 
 nba
 ```
 
 ## Introduction
+In current NBA, it is hard to ignore the dominant power of the Western conference when Golden State Warriors made the Cleveland Cavaliers, the best team in the Eastern conference, look like a college team during last year's NBA Finals. My project will observe a dataset of NBA teams and their winning percentage from recent 4 years to examine if the average record of teams from the Western conference is better than the average record of teams from the Eastern conference. My first analysis includes a mean inference showing the NBA teams' records in relation to their Conference. My second analysis comprises a mean inference examining the NBA teams' field goal percentage in relation to their Conference. Last but not least, my final analysis includes a liner regression graph examining the relationship between each team's field goal percentage and its record - winning percentage. 
 
-
+My hypothesis is there is a statistical significance that shows the team from Western Conference has a better winning percentage and a better field goal percentage. Additionally, I think there is a strong relationship between each team's winning percentage and its field goal percentage. 
+ 
 ## Methods
+The dataset was collected from ESPN sport website that provides each NBA team's field goal percentage and winning percentage from last 4 seasons. The field goal percentage is the ratio of field goals made to field goals attempted, and it is a crucial criterion to evaluate a team's offensive ability. The winning percentage is computed by dividing the number of wins by the total number of games. The lm_basic model used in my project will demonstrate which conference's teams have a better field goal percentage and winning percentage through a regression table. In fist two inferences, the data from the Western conference is my baseline (ESPN).
+
 
 
 ## Results
 ```{r}
-nba2017 <- filter(nba, season == "2017")
-model <- lm_basic(winning_percentage ~ 1 + conference, data = nba2017) 
+model <- lm_basic(winning_percentage ~ 1 + conference, data = nba) 
+reg_table(model, level = 0.95)
+```
+In the fist inference, because the confidence interval is from -0.02 to 0.089 and includes 0 within this interval, a statistically significant relationship does not exist between the team's winning percentage and its conference.
+```{r}
+ggplot(nba, aes(conference, winning_percentage))+
+  geom_boxplot()
+```
+In this analysis, I used the mean of winning percentage of Eastern conference's teams as my baseline value, and the intercept value of the Western Conference is positive 0.034. The boxplot graph shows this information by graphing Western Conference's winning percentage slightly higher than Eastern Conference's winning percentage.
+
+```{r}
+model <- lm_basic(field_goal_percentage ~ 1 + conference, data = nba)
 reg_table(model, level = 0.95)
 ```
 
 ```{r}
-model <- lm_basic(threepointer_percentage ~ 1 + conference, data = nba2017)
-reg_table(model, level = 0.95)
+ggplot(nba, aes(conference, field_goal_percentage))+
+  geom_boxplot()
 ```
+My second inference shows the comparison of NBA team's field goal percentage, which is an important number to evaluate Team's offence, between the Western conference and the Eastern conference. Because the confidence interval is from -0.0007 to 0.1 and includes 0 within this interval, a statistically significant relationship does not exist between the team's field goal percentage and its conference. I used the mean of field goal percentage of Eastern conference's teams as my baseline value, and the intercept value of the Western Conference is positive 0.004. In the boxplot, it shows that Western Conference's field goal percentage is slightly higher than Eastern Conference's field goal percentage. 
+
+
 
 ```{r}
-model <- lm_basic(field_goal_percentage ~ 1 + conference, data = nba2017)
-reg_table(model, level = 0.95)
+ggplot(nba, aes(field_goal_percentage, winning_percentage)) +
+  geom_smooth(method = "lm")
 ```
-
+My final graphic shows the relationship between NBA team's field goal percentage and NBA team's winning percentage. There is a linear relationship between these two numeric variables. The slope of this line is upward, which mean NBA team's field goal percentage and NBA team's winning percentage have a positive relationship. 
 ## Conclusions
+To my surprise, because the confidence interval is from -0.02 to 0.089 and includes 0 within this interval, a statistically significant relationship does not exist between the team's winning percentage and its conference, which contradicts my previous hypothesis. From my first inference, I arrive at the conclusion that the Western conference's teams have slightly better winning percentage than teams from the Eastern Conference. However, the difference of two conferences' winning percentage is so minimal that there is no statistical significance between the winning percentage in the Western Conference and the winning percentage in the Eastern Conference. Although the teams in the Western conference are better at winning percentage than the teams in the Eastern conference, Western teams do not have dominant performance at winning records. 
 
+From my second inference, because the confidence interval is from -0.0007 to 0.1 and includes 0 within this interval, a statistically significant relationship does not exist between the team's field goal percentage and its conference, which also contradicts my hypothesis. My baseline value shows the field goal percentage of Eastern teams is 45%, which is slightly lower than the field goal percentage of Western teams. The conclusion is that although the teams in the Western conference are better at field goal percentage than the teams in the Eastern conference, western teams do not have large advantage in offense. 
 
+From my last graph, we conclude that NBA team's field goal percentage and NBA team's winning percentage have a positive relationship. If a team has a relatively high field goal percentage, this team is more likely to have a better winning percentage than other teams that do not have high field goal percentage.  
 
 ## References
 
-
+"NBA Statistics and League Leaders." NBA Stats, sports.espn.go.com/nba/statistics?season=2009&seasontype=2.
 
 
