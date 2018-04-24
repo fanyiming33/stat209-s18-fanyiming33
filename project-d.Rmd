@@ -1,0 +1,36 @@
+---
+title: "PUT YOUR TITLE HERE"
+author: "PUT YOUR NAME HERE"
+output: html_document
+---
+
+```{r setup, include=FALSE, message=FALSE, warning=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(message = FALSE)
+knitr::opts_chunk$set(warning = FALSE)
+knitr::opts_chunk$set(out.width = "100%")
+knitr::opts_chunk$set(dpi = 300)
+
+library(readr)
+library(ggplot2)
+library(dplyr)
+library(ggmap)
+library(viridis)
+library(forcats)
+library(smodels)
+```
+
+AVAILABLE DATASETS (choose one and delete the others)
+
+```{r}
+
+nba_shots <- read_csv("https://statsmaths.github.io/stat_data/nba_shots.csv")
+
+```
+
+```{r}
+nba_player <- group_summarize(nba_shots, player_name)
+curry1 <- filter(nba_player, player_name == "stephen curry")
+curry2 <- filter(nba_shots, player_name == "stephen curry")
+```
+
