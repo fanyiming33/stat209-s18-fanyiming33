@@ -34,3 +34,25 @@ curry1 <- filter(nba_player, player_name == "stephen curry")
 curry2 <- filter(nba_shots, player_name == "stephen curry")
 ```
 
+
+My thesis is that more shots are taking by the undersized guard when the game comes to the end.  Undersized guards are more likely 
+
+
+
+
+
+```{r}
+mean(nba_player$shooter_height_mean)
+```
+```{r}
+small <- filter(nba_shots, shooter_height <= 79.19229) 
+big <- filter(nba_shots, shooter_height >= 79.19229)
+model <- lm_basic(shot_dist ~ 1 + shooter_height, data = nba_shots)
+reg_table(model, level = 0.95)
+```
+```{r}
+nba_shots$tall <- nba_shots$shooter_height >= 79.19229
+model <- lm_basic(shot_dist ~ 1 + tall, data = nba_shots)
+reg_table(model, level = 0.95)
+```
+
