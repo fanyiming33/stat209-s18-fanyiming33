@@ -1,6 +1,6 @@
 ---
-title: "PUT YOUR TITLE HERE"
-author: "PUT YOUR NAME HERE"
+title: "Size does not better in basketball"
+author: "Yiming Fan"
 output: html_document
 ---
 
@@ -20,39 +20,74 @@ library(forcats)
 library(smodels)
 ```
 
-AVAILABLE DATASETS (choose one and delete the others)
+
 
 ```{r}
 
 nba_shots <- read_csv("https://statsmaths.github.io/stat_data/nba_shots.csv")
 
+
 ```
 
 ```{r}
-nba_player <- group_summarize(nba_shots, player_name)
-curry1 <- filter(nba_player, player_name == "stephen curry")
-curry2 <- filter(nba_shots, player_name == "stephen curry")
+nba_shots$tall <- nba_shots$shooter_height >= 79
+
+nba_players <- group_summarize(nba_shots, player_name)
+
 ```
 
 
-My thesis is that more shots are taking by the undersized guard when the game comes to the end.  Undersized guards are more likely 
-
-
-
-
-
 ```{r}
-mean(nba_player$shooter_height_mean)
+clutch <- filter(nba_shots, period == "4", game_clock <= "120")
+
+clutch$tall <- clutch$shooter_height >= 79
+
+tall <- group_summarize(clutch, tall)
+
+
 ```
+
 ```{r}
-small <- filter(nba_shots, shooter_height <= 79.19229) 
-big <- filter(nba_shots, shooter_height >= 79.19229)
-model <- lm_basic(shot_dist ~ 1 + shooter_height, data = nba_shots)
-reg_table(model, level = 0.95)
+mean(nba_players$shooter_height_mean)
 ```
+
+When I was young, I used to play a lot of basketball in my neighborhood, and I realized that the shortest kid always got picked last regardless his basketball ability. This personal experience brings me to my research question whether height has a huge impact on a basketball player's performance, and what advantages do small players have compared to relatively tall players. The old belief is that as long as you are taller than other basketball players, you will do well at basketball. The obvious logic behind this theory is that the taller you are, the easier it is for you to shoot the ball into the basket. Thus, many people view being tall as a benefit for basketball players. However, this theory does not hold true in the current NBA. In the history of NBA, the shortest player who is 5 foot 3 could have no less importance to the game as a 7-foot player had.  Actually, being small in basketball may have so many benefits because short players often come with the swiftness, quickness, and amazing athletic ability. Due to the fact most of the tall players only rely on their sizes and strength to get easy buckets, small players spend more time in developing their shooting skills that can help them not get blocked by those tall players. In addition, shorter players are likely to be quicker than their taller counterparts, so shorter players are more likely to develop excellent dribbling skills because of their quickness and agility, and it is hard for the tall defender to steal the ball from short players. Last but not least, my final analysis found when the game is on the line, usually around the last 2 minutes of the game, and the team is trying to either tie the score or win the game before the buzzer, more teams are likely to rely on small players to take shots. 
+
+After doing my research, I found that the undersized players, who are shorter than NBA average height, are more likely to take long distance shots, and the undersized players dribble more than the tall players do before taking shots. Finally, the undersized players take more shots than tall players at the end of the game (when the game clock is under 2 minutes of the fourth quarter). (THESIS STATEMENT)
 ```{r}
-nba_shots$tall <- nba_shots$shooter_height >= 79.19229
+
 model <- lm_basic(shot_dist ~ 1 + tall, data = nba_shots)
 reg_table(model, level = 0.95)
 ```
 
+```{r}
+ggplot(nba_shots, aes(tall, shot_dist)) +
+  geom_boxplot()
+```
+
+In my first analysis, I want to compare the distribution of shot selection between tall players and short players.  I used the mean of distance of the shot of short players, who are shorter than the average height of players in the NBA - 79 inches, as my baseline value. According to my result derived from inference, because the confidence interval is from -3.223 to -3.028, a statistically significant relationship exists between the distance of shots and the shooters' height. To illustrate, the average shot distance of a short shooter is 15.397 inches, which is 3.125 inches further than average shot distance of a tall shooter. From this result, we can easily conclude that NBA players, who are shorter than NBA average height, are prone to take long-distance shots than tall players. One possible reason to explain why short players have longer shooting ranges is most of the short players have suitable hand size to shoot the ball smoothly from the distance. For the tall players, their enormous hands prevent them from shooting smoothly from the distance.   
+
+The boxplot graph shows the same pattern by graphing undersized players' shot distance significantly higher than tall players' shot distance. 
+
+```{r}
+model <- lm_basic(dribbles ~ 1 + tall, data = nba_shots)
+reg_table(model, level = 0.95)
+```
+```{r}
+ggplot(nba_shots, aes(tall, dribbles)) +
+  geom_boxplot()
+```
+My second inference shows the comparison of the number of dribbles the shooter took between undersized players and relatively tall players. Because the confidence interval is from -2.553 to -2.481 and does not include 0 within this interval, a statistically significant relationship occurs between the number of dribbles of shooter took before the shot and the shooter's height. To illustrate, on average, an undersized player dribbles 2.517 times more than a tall player does. I use the mean number of dribbles the shooter took of short players as my baseline value to conduct my analysis. In the boxplot, it shows that shorter players are likely to dribble much more than tall players do before taking a shot. This result makes a lot of sense because a small basketball player tends to have shorter response time, which help the player the handle the ball better. Thus, it is reasonable undersized players dribble the ball more times than tall players do. 
+
+```{r}
+
+ggplot(tall, aes(pts_sum, shot_number_sum)) +
+  geom_point(aes(color = tall), size = 5)+
+  annotate("text", x = 570, y = 6700, label = "tall players")+
+  annotate("text", x = 497, y = 7600, label = "short players")
+
+```
+My Final graph shows that the NBA teams incline to rely on the shooting performance of short players in the clutch moment. The red dot on my graph indicates that short players, who are below average height of NBA players, took almost 9000 shots, which is 3000 shots more than tall player took, within the last 2 minutes of the game.Thus, in the most crucial moment of the game, small players are taking the great responsibility to carry the team, and they become valuable part on their team. Due to the characteristics of being quick and skillful, the shorter players have their own advantages to be productive in the game. However, tall players scored nearly 70 points more in the final 2 minutes of the game than undersized players scored. That means short players still have to improve their offensive efficency during the game. 
+
+Conclusion:
+In conclusion, the basketball is not a "big men" sport anymore. Although tall players have comparative advantages of being strong and powerful, the undersized players can also be productive in game by being able to shoot from deep and dribbling the ball more. The NBA coaches are willing to let undersized players take the important shots, which can further prove the growing importance of small basketball players.  
